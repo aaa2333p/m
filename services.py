@@ -1,0 +1,1 @@
+business logic services for Products, Customers, Transactions, and Invoices management
