@@ -1,14 +1,9 @@
-# نظام المحاسبة ونقاط البيع
+# Eagle Accounting System (الصقر لأنظمة المحاسبة)
 
-هذا المشروع عبارة عن نظام شامل للمحاسبة ونقاط البيع مخصص لمتاجر التجزئة. يهدف إلى تحسين إدارة الحسابات والمعاملات والمنتجات والعملاء. سيتمكن المستخدمون من تنفيذ جميع عمليات البيع والإبلاغ بسهولة.
+Eagle Accounting System is a comprehensive software solution designed to meet the accounting needs of businesses. It provides various features including:
 
-## الميزات
-- إدارة المنتجات
-- تتبع المعاملات
-- إدارة العملاء
-- تقارير مالية
+- **Invoicing**: Create and manage invoices effortlessly.
+- **Expense Tracking**: Easily track and categorize expenses.
+- **Reporting**: Generate reports for better financial insights.
 
-## كيفية الاستخدام
-1. قم بتثبيت المتطلبات باستخدام `pip install -r requirements.txt`
-2. قم بتكوين `config.py` لإعدادات الاتصال.
-3. ابدأ تشغيل التطبيق باستخدام `python main.py`. 
+Whether you are a small business or a large enterprise, the Eagle Accounting System can help streamline your accounting processes.
