@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# Virtual Environments
+venv/
+.env
+
+# Database files
+*.db
+
+# IDE and editor folders
+.vscode/
+.idea/
+
+# Other common development files
+.DS_Store
+*.log
+*.coverage
+*.egg-info/
+*.egg
