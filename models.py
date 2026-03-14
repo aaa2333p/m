@@ -1,1 +1,50 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey\nfrom sqlalchemy.orm import relationship\nfrom sqlalchemy.ext.declarative import declarative_base\n\nBase = declarative_base()\n\n\nclass User(Base):\n    __tablename__ = 'users'\n    id = Column(Integer, primary_key=True)\n    username = Column(String, unique=True, nullable=False)\n    email = Column(String, unique=True, nullable=False)\n    password_hash = Column(String, nullable=False)\n\n\nclass Product(Base):\n    __tablename__ = 'products'\n    id = Column(Integer, primary_key=True)\n    name = Column(String, nullable=False)\n    description = Column(String)\n    price = Column(Float, nullable=False)\n\n\nclass Customer(Base):\n    __tablename__ = 'customers'\n    id = Column(Integer, primary_key=True)\n    name = Column(String, nullable=False)\n    contact_info = Column(String)\n\n\nclass Transaction(Base):\n    __tablename__ = 'transactions'\n    id = Column(Integer, primary_key=True)\n    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)\n    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)\n    quantity = Column(Integer, nullable=False)\n    total_price = Column(Float, nullable=False)\n\n    user = relationship('User')\n    product = relationship('Product')\n\n\nclass Invoice(Base):\n    __tablename__ = 'invoices'\n    id = Column(Integer, primary_key=True)\n    transaction_id = Column(Integer, ForeignKey('transactions.id'), nullable=False)\n    invoice_date = Column(String, nullable=False)\n    amount_due = Column(Float, nullable=False)\n\n    transaction = relationship('Transaction')\n
+from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    username = Column(String, unique=True, nullable=False)
+    email = Column(String, unique=True, nullable=False)
+    password_hash = Column(String, nullable=False)
+
+
+class Product(Base):
+    __tablename__ = 'products'
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    description = Column(String)
+    price = Column(Float, nullable=False)
+
+
+class Customer(Base):
+    __tablename__ = 'customers'
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    contact_info = Column(String)
+
+
+class Transaction(Base):
+    __tablename__ = 'transactions'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    product_id = Column(Integer, ForeignKey('products.id'), nullable=False)
+    quantity = Column(Integer, nullable=False)
+    total_price = Column(Float, nullable=False)
+
+    user = relationship('User')
+    product = relationship('Product')
+
+
+class Invoice(Base):
+    __tablename__ = 'invoices'
+    id = Column(Integer, primary_key=True)
+    transaction_id = Column(Integer, ForeignKey('transactions.id'), nullable=False)
+    invoice_date = Column(String, nullable=False)
+    amount_due = Column(Float, nullable=False)
+
+    transaction = relationship('Transaction')
